@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Container">
+        <h1 >Current Time Is:<br>    <span id="time"></span></h1>
+        <p>This real-time clock dynamically updates every second, showcasing the power of JavaScript for live data rendering.The clock presents a seamless, real-time experience that refreshes automatically without needing to reload the page. The clean and minimal interface ensures that the current time is displayed clearly and consistently, providing a practical demonstration of JavaScript's ability to handle real-time applications.</p>
+       
+    </div>
+    <script>
+        let time;
+        let date;
+        let a;
+        const option={weekday:'long',year:'numeric',month:'long',day:'numeric'}
+        setInterval(()=>{
+            a=new Date();
+            // undefine...not bound of language
+            date=a.toLocaleDateString(undefined,option);
+            time=a.getHours()+" hr :"+a.getMinutes()+" min :"+a.getSeconds()+" sec";
+            document.getElementById("time").innerHTML=time+"<br> on "+date;
+        },1000);
+    </script>
+</body>
+</html>
